@@ -34,11 +34,15 @@ def main() -> None:
     end = next(z for z in config.zones.values() if z.is_end).name
 
     pathfinder = PathFinder(graph)
-    drone_paths = pathfinder.plan_all_drones(
-        start,
-        end,
-        config.nb_drones,
-    )
+    try:
+        drone_paths = pathfinder.plan_all_drones(
+            start,
+            end,
+            config.nb_drones,
+        )
+    except ValueError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
 
     simulation = Simulation(drone_paths)
     turns = simulation.run()
@@ -52,4 +56,8 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("\nInterrupted by user.", file=sys.stderr)
+        sys.exit(130)

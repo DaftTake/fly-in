@@ -258,6 +258,11 @@ class Parser:
                 f"Connection must be 'zone_a-zone_b', got '{mandatory}'",
             )
         zone_a, zone_b = parts[0].strip(), parts[1].strip()
+        if zone_a == zone_b:
+            raise ParseError(
+                line_num,
+                f"Zone '{zone_a}' cannot be connected to itself",
+            )
         if not zone_a or not zone_b:
             raise ParseError(
                 line_num,
