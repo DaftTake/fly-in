@@ -1,4 +1,3 @@
-# Fly-In: Autonomous Drone Routing & Visualization System
 
 *This project has been created as part of the 42 curriculum by wabbad.*
 

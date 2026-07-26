@@ -1,14 +1,12 @@
-# Makefile for Fly-In Drone Routing Project
 
 PYTHON := python3
-MAP ?= maps/easy/01_linear_path.txt
 
 .PHONY: all install run debug clean lint lint-strict visualize
 
 all: run
 
 install:
-	$(PYTHON) -m pip install --break-system-packages pygame flake8 mypy
+	$(PYTHON) -m pip install -r requirements.txt
 
 run:
 	$(PYTHON) main.py $(MAP)
