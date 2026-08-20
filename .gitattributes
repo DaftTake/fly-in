@@ -1,5 +1,12 @@
-# Ignore web visualizer assets from GitHub language statistics
+# Force GitHub Linguist to detect ONLY Python
+* linguist-detectable=false
+*.py linguist-detectable=true
+*.py linguist-language=Python
+
+# Vendor & ignore all web assets
 galles_visualizer/** linguist-vendored
-*.js linguist-vendored
-*.html linguist-vendored
-*.css linguist-vendored
+galles_visualizer/** linguist-documentation
+galles_visualizer/** linguist-detectable=false
+*.js linguist-detectable=false
+*.html linguist-detectable=false
+*.css linguist-detectable=false
