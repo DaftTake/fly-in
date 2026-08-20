@@ -1,0 +1,5 @@
+# Ignore web visualizer assets from GitHub language statistics
+galles_visualizer/** linguist-vendored
+*.js linguist-vendored
+*.html linguist-vendored
+*.css linguist-vendored
